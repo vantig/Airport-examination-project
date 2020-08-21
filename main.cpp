@@ -3,10 +3,11 @@
 int main()
 {
 	Airport airoport;
-	std::ifstream in("Planes.txt");
-	airoport.readPlanes(in);
+	
+	airoport.readPlanes("Planes.txt");
 	/*airoport.readPilots("Pilots.txt");
-	airoport.readFlights("Flights.txt");
-	airoport.initialFlights();*/
+	airoport.readFlights("Flights.txt");*/
+	airoport.printPlanes(std::cout);
+	/*airoport.initialFlights();*/
 	return 0;
 }
