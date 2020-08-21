@@ -18,9 +18,6 @@
     <ClInclude Include="HeaderMain.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Pilot.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="Flight.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
@@ -28,6 +25,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Plane.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Pilot.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

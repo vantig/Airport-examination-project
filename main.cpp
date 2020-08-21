@@ -4,10 +4,13 @@ int main()
 {
 	Airport airoport;
 	
-	airoport.readPlanes("Planes.txt");
-	/*airoport.readPilots("Pilots.txt");
-	airoport.readFlights("Flights.txt");*/
-	airoport.printPlanes(std::cout);
-	/*airoport.initialFlights();*/
+	
+	airoport.readPilots("Pilots.txt");
+	airoport.readFlights("Flights.txt");
+	airoport.initialFlights(5);
+	airoport.printFlights(std::cout);
+	airoport.printPilots(std::cout);
+		
+	
 	return 0;
 }

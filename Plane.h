@@ -16,13 +16,13 @@ private:
 	std::string number;
 	std::string brand;
 	std::string releaseDate;
-	double carrying;
-	size_t passengersCount;
+	int carrying;
+	int passengersCount;
 	
 };
 std::ostream& operator<<(std::ostream& out, const Plane& plane)
 {
-	out << " Plane number | " << plane.getNumber() << " brand | " << std::setfill('-') << std::setw(15)<< plane.getBrand() << " releaseDate | " << plane.getReleaseDate() << " carrying | " << std::setfill('-') << std::setw(7) <<plane.getCarrying() << "KG | passengersCount "  << std::setw(5) << plane.getPassengersCount() << std::endl;
+	out << plane.getNumber()<<" "<< plane.getBrand() << " " << plane.getReleaseDate() << " " <<  plane.getCarrying() << " " <<  plane.getPassengersCount() <<  " \n";
 	return out;
 
 }
