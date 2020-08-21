@@ -8,7 +8,7 @@ public:
 	void readPlanes(std::string);
 	void readPilots(std::string);
 	void readFlights(std::string);
-	 void initialFlights(int);
+	 void initialFlights();
 	void printPlanes(std::ostream&);
 	void printPilots(std::ostream&);
 	void printFlights(std::ostream&);
@@ -19,7 +19,7 @@ private:
 
 };
 
-void Airport::initialFlights(int)
+void Airport::initialFlights()
 {
 	int indexPlane, indexPilot,indexFlight;
 	bool flag = true;

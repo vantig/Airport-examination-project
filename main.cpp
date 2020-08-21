@@ -7,9 +7,11 @@ int main()
 	
 	airoport.readPilots("Pilots.txt");
 	airoport.readFlights("Flights.txt");
-	airoport.initialFlights(5);
-	airoport.printFlights(std::cout);
+	airoport.readPlanes("Planes.txt");
+	//airoport.initialFlights();
 	airoport.printPilots(std::cout);
+	airoport.printFlights(std::cout);
+	airoport.printPlanes(std::cout);
 		
 	
 	return 0;
