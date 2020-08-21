@@ -36,4 +36,23 @@ private:
 	size_t countOfSoldTickets;
 	size_t cargoWeight;
 };
+	std::ostream& operator<<(std::ostream& out, const Flight& flight)
+{
+		out << " flight number | " << flight.getflightNumber() << " flight start date | " << flight.getStartDate() << "  flight finish date | " << flight.getFinishDate() <<
+			" Pilot surname | " << std::setfill('-') << std::setw(15) << flight.getPilotSurname() << " plane Number | " << flight.getPlaneNumber() << " plane Brand | " << std::setfill('-') << std::setw(15) << flight.getPlaneBrand() <<
+			" km | " << std::setw(7) << flight.getKm() << " cost | " << std::setw(4) << flight.getCost() <<
+			"  start Point | " << std::setfill('-') << std::setw(10) << flight.getStartPoint() << "  finish Point | " << std::setfill('-') << std::setw(10) << flight.getFinishPoint() <<
+			" count of stops | " << flight.getCountOfStops() << " count of sold tickets | " << std::setw(5) << flight.getCountOfSoldTickets() << " cargo weight | " << std::setw(5) << flight.getCargoWeight();
+	return out;
+	std::cout << std::setfill('-') << std::setw(15) << "Pilot surname" << std::setw(5) << "  |  " << "hello" << std::setw(20) << std::setfill('-');
+
+}
+
+ std::istream& operator>>(std::istream& in, Flight& flight)
+{
+	in >> flight.flightNumber >> flight.finishDate >> flight.startDate >> flight.pilotSurname >> 
+		flight.planeNumber >> flight.planeBrand >> flight.km >> flight.cost >> flight.startPoint >> flight.finishPoint >>
+		flight.countOfStops >> flight.countOfSoldTickets >> flight.cargoWeight;
+	return in;
+}
 
