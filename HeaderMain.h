@@ -6,3 +6,6 @@
 #include<algorithm>
 #include<iterator>
 #include<fstream>
+#include"Plane.h"
+#include"Pilot.h"
+#include"Flight.h"

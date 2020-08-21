@@ -22,7 +22,7 @@ private:
 };
 std::ostream& operator<<(std::ostream& out, const Plane& plane)
 {
-	out << " Plane number " << plane.getNumber() << " brand " << std::setfill('-') << std::setw(15)<< plane.getBrand() << " releaseDate " << plane.getReleaseDate() << " carrying " << std::setfill('-') << std::setw(7) <<plane.getCarrying() << " passengersCount "  << std::setw(5) << plane.getPassengersCount() << std::endl;
+	out << " Plane number | " << plane.getNumber() << " brand | " << std::setfill('-') << std::setw(15)<< plane.getBrand() << " releaseDate | " << plane.getReleaseDate() << " carrying | " << std::setfill('-') << std::setw(7) <<plane.getCarrying() << "KG | passengersCount "  << std::setw(5) << plane.getPassengersCount() << std::endl;
 	return out;
 
 }

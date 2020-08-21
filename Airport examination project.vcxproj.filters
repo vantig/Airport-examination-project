@@ -18,13 +18,16 @@
     <ClInclude Include="HeaderMain.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Planes.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="Pilot.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Flight.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Airport.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Plane.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
@@ -32,5 +35,16 @@
     <ClCompile Include="main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Planes.txt">
+      <Filter>Файлы ресурсов</Filter>
+    </Text>
+    <Text Include="Pilots.txt">
+      <Filter>Файлы ресурсов</Filter>
+    </Text>
+    <Text Include="Flights.txt">
+      <Filter>Файлы ресурсов</Filter>
+    </Text>
   </ItemGroup>
 </Project>

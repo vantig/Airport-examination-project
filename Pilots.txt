@@ -1,0 +1,12 @@
+Smith 3 46-Hampton-Court-Rd 13/07/1973 3400$
+Johnson 7 1-Argyll-Street 28/10/1974 3400$
+Williams 3	60-Berkeley-Rd 09/08/1985 2000$
+Jones 4 12-Park-Row 08/06/1988 2100$
+Miller 10 36-Leicester-Road 09/04/1993 2100$
+Wilson 12 20-Ilchester-Road 10/04/1970 3700$
+Moore 4 72-Oxford-Rd 17/06/1971 3600$
+Taylor 8 35-Broomfield-Place 23/04/1976 3500$
+Anderson 5 72-Broomfield-Place 05/12/1982 2200$
+Thomas 4 52-Terrick-Rd 06/05/1992 2100$
+Jackson 6 26-Well-Lane 11/05/1962 4000$
+Thompson 13 5-Circle-Way 07/10/1971 3400$

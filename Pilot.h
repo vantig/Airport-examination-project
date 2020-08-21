@@ -21,7 +21,7 @@ private:
 };
 std::ostream& operator<<(std::ostream& out, const Pilot& pilot)
 {
-	out << " Pilot surname " << std::setfill('-') << std::setw(15) << pilot.getSurname() << " work Experience  " << std::setw(3)<<  pilot.getworkExperienceYears() << " years | address " << std::setfill('-') << std::setw(15) << pilot.getAddress() << " Date Of Birth " << pilot.getDateOfBirth() << " salary " << pilot.getSalary() << std::endl;
+	out << " Pilot surname " << std::setfill('-') << std::setw(15) << pilot.getSurname() << " work Experience  " << std::setw(3)<<  pilot.getworkExperienceYears() << " years | address " << std::setfill('-') << std::setw(20) << pilot.getAddress() << " Date Of Birth " << pilot.getDateOfBirth() << " salary " << pilot.getSalary() << std::endl;
 
 	return out;
 }
