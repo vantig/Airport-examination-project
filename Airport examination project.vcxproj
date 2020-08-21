@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Flight.h" />
     <ClInclude Include="HeaderMain.h" />
     <ClInclude Include="Pilot.h" />
     <ClInclude Include="Planes.h" />
