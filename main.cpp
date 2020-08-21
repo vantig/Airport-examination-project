@@ -1,13 +1,12 @@
 #include"HeaderMain.h"
-void hi(int& a)
-{
-	int b= a;
-}
+
 int main()
 {
-	int a = 5;
-	hi(a);
-	std::cout << a;
-	
+	Airport airoport;
+	std::ifstream in("Planes.txt");
+	airoport.readPlanes(in);
+	/*airoport.readPilots("Pilots.txt");
+	airoport.readFlights("Flights.txt");
+	airoport.initialFlights();*/
 	return 0;
 }
