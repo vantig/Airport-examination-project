@@ -12,11 +12,13 @@ public:
 	void printPlanes(std::ostream&);
 	void printPilots(std::ostream&);
 	void printFlights(std::ostream&);
+	
 private:
+	
+	
+	std::vector<Flight>flights;
 	std::vector<Plane>planes;
 	std::vector<Pilot>pilots;
-	std::vector<Flight>flights;
-
 };
 
 void Airport::initialFlights()
@@ -26,25 +28,26 @@ void Airport::initialFlights()
 	
 	while (flag)
 	{
-		std::cout << std::setfill('-') << " SELECT FLIGHT " << std::endl;
-		/*for (size_t i = 0; i <this-> flights.size(); ++i)
+		
+		for (size_t i = 0; i < flights.size(); i++)
 		{
-			std::cout << i << ". " << flights[i];
-		}*/
+			std::cout<<i<< this->flights[i];
+		}
+		std::cout << " SELECT FLIGHT " << std::endl << std::endl;
 		std::cin >> indexFlight;
-		std::cout << std::setfill('-') << " SELECT PILOT " << std::endl;
-		/*for (size_t i = 0; i < this->pilots.size(); ++i)
+		for (size_t i = 0; i < pilots.size(); i++)
 		{
-			std::cout << i << ". " << this->pilots[i];
-		}*/
+			std::cout << this->pilots[i];
+		}
+		std::copy(pilots.begin(), pilots.end(), std::ostream_iterator<Pilot>(std::cout, "\n"));
+		std::cout  << " SELECT PILOT " << std::endl << std::endl;
+
+	
 		std::cin >> indexPilot;
-		std::cout << std::setfill('-') << " SELECT PLANE " << std::endl;
-		/*for (size_t i = 0; i < this->planes.size(); ++i)
-		{
-			std::cout << i << ". " << this->planes[i];
-		}*/
+		std::cout << " SELECT PLANE " << std::endl << std::endl;
+		
 		std::cin >> indexPlane;
-		/*flights[indexFlight].setPilotandPlane(pilots[indexPilot], planes[indexPlane]);*/
+		//flights[indexFlight].setPilotandPlane(pilots[indexPilot], planes[indexPlane]);
 		std::cout << "-----------successfully-------------" << std::endl;
 		std::cout << "Again? yes(1)/no(0)" << std::endl;
 		std::cin >> flag;
