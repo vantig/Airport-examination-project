@@ -11,7 +11,7 @@ public:
 	double getCarrying()const { return carrying; }
 	size_t getPassengersCount()const { return passengersCount; }
 	friend std::istream& operator>>(std::istream& in, Plane&);
-	friend std::ostream& operator<<(std::ostream& out, Plane&);
+	friend std::ostream& operator<<(std::ostream& out, const Plane&);
 private:
 	std::string number;
 	std::string brand;

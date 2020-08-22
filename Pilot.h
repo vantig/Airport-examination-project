@@ -11,7 +11,7 @@ public:
 	std::string getDateOfBirth()const { return DateOfBirth; }
 	double getSalary()const { return salary; }
 	friend std::istream& operator>>(std::istream& in, Pilot&);
-	friend std::ostream& operator<<(std::ostream& out, Pilot&);
+	friend std::ostream& operator<<(std::ostream& out, const Pilot&);
 private:
 	std::string surname;
 	size_t workExperienceYears;
@@ -21,7 +21,7 @@ private:
 };
 std::ostream& operator<<(std::ostream& out, const Pilot& pilot)
 {
-	out << " | Pilot surname  " <<  std::setw(12) << pilot.getSurname() << " | work Experience  " << std::setw(2) << pilot.getworkExperienceYears() << " years | address " <<std::setw(23) << pilot.getAddress() << " | Date Of Birth " << pilot.getDateOfBirth() << " | salary " << pilot.getSalary() << "$"<<std::endl;
+	out << " | Pilot surname  " << std::setw(12) << pilot.getSurname() << " | work Experience  " << std::setw(2) << pilot.getworkExperienceYears() << " years | address " << std::setw(23) << pilot.getAddress() << " | Date Of Birth " << pilot.getDateOfBirth() << " | salary " << pilot.getSalary() << "$" << std::endl;
 
 	return out;
 }

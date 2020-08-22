@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include"HeaderMain.h"
+#include"Pilot.h"
 class Airport
 {
 public:
@@ -31,23 +32,29 @@ void Airport::initialFlights()
 		
 		for (size_t i = 0; i < flights.size(); i++)
 		{
-			std::cout<<i<< this->flights[i];
+			std::cout<< std::setw(2) <<i<<"."<< this->flights[i];
 		}
-		std::cout << " SELECT FLIGHT " << std::endl << std::endl;
+		std::cout << "\n SELECT FLIGHT " << std::endl << std::endl;
 		std::cin >> indexFlight;
 		for (size_t i = 0; i < pilots.size(); i++)
 		{
-			std::cout << this->pilots[i];
+			std::cout << i << this->pilots[i];
 		}
-		std::copy(pilots.begin(), pilots.end(), std::ostream_iterator<Pilot>(std::cout, "\n"));
-		std::cout  << " SELECT PILOT " << std::endl << std::endl;
+		
+		std::cout  << "\n SELECT PILOT " << std::endl << std::endl;
 
 	
 		std::cin >> indexPilot;
-		std::cout << " SELECT PLANE " << std::endl << std::endl;
+		for (size_t i = 0; i < planes.size(); i++)
+		{
+			std::cout << i << this->planes[i];
+		}
+
+		std::cout << "\n SELECT PLANE " << std::endl << std::endl;
 		
 		std::cin >> indexPlane;
-		//flights[indexFlight].setPilotandPlane(pilots[indexPilot], planes[indexPlane]);
+		flights[indexFlight].setPilotandPlane(pilots[indexPilot], planes[indexPlane]);
+		std::cout <<flights[indexFlight] << std::endl;
 		std::cout << "-----------successfully-------------" << std::endl;
 		std::cout << "Again? yes(1)/no(0)" << std::endl;
 		std::cin >> flag;

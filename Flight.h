@@ -41,7 +41,7 @@ private:
 	std::ostream& operator<<(std::ostream& out, const Flight& flight)
 {
 		out << " flight number  " << flight.getflightNumber() << " flight start date " << flight.getStartDate() << "  flight finish date " << flight.getFinishDate() << std::endl <<
-			" Pilot surname  " << std::setw(15) << flight.getPilotSurname() << " plane Number " << std::setw(10) << flight.getPlaneNumber() << " plane Brand " <<  std::setw(10) << flight.getPlaneBrand() << std::endl <<
+			" Pilot surname  " << std::setw(10) << flight.getPilotSurname() << " plane Number " << std::setw(10) << flight.getPlaneNumber() << " plane Brand " <<  std::setw(10) << flight.getPlaneBrand() << std::endl <<
 			" distance " << std::setw(7) << flight.getKm() << " km " << " cost " << std::setw(4) << flight.getCost() << "$" <<
 			" start Point " << std::setw(10) << flight.getStartPoint() << "  finish Point  " << std::setw(10) << flight.getFinishPoint() <<
 			" count of stops " << flight.getCountOfStops() << " count of sold tickets " << std::setw(5) << flight.getCountOfSoldTickets() << " cargo weight  " << std::setw(7) << flight.getCargoWeight()<< "KG" <<std::endl;
