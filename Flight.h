@@ -20,6 +20,8 @@ public:
 	size_t getCountOfStops() const { return countOfStops; }
 	size_t getCountOfSoldTickets() const { return countOfSoldTickets; }
 	size_t getCargoWeight() const { return cargoWeight; }
+	Pilot& getPilot() { return pilot; };
+	Plane& getPlane() { return plane; };
 	friend std::istream& operator>>(std::istream& in, Flight& flight);
 	friend	std::ostream& operator<<(std::ostream& out, const Flight& flight);
 protected:
@@ -99,6 +101,8 @@ void Flight:: changeItem()
 	{
 		std::cout << "Enter flight cost\n";
 		std::cin >> str;
+		str += "$";
+
 		std::stringstream out(str);
 		out >> cost ;
 		break;

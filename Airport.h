@@ -9,12 +9,12 @@ public:
 	void readPlanes(std::string);
 	void readPilots(std::string);
 	void readFlights(std::string);
-	 void initialFlights();
-	void printPlanes(std::ostream&);
+	void initialFlights();
+	void printPlanes (std::ostream&);
 	void printPilots(std::ostream&);
 	void printFlights(std::ostream&);
 	void edit();
-	
+	void searchFlightByNumber();
 private:
 	
 	
@@ -22,6 +22,49 @@ private:
 	std::vector<Plane>planes;
 	std::vector<Pilot>pilots;
 };
+void Airport::searchFlightByNumber()
+{
+ std::cout << "Enter flight number\n"; 
+ std::string str;
+	std::cin >> str;
+	std::for_each(flights.begin(), flights.end(), [this,&str](Flight &obj) {
+		if (obj.getflightNumber() == str)
+		{
+			std::cout << obj<<std::endl;
+			if (obj.getPlane().getBrand().size()==0)
+			{
+				int temp;
+				std::cout << " pilot and plane not assigned, assign?yes(1)/no(0)" << std::endl;
+				std::cin >> temp;
+				if (temp)
+				{
+				this->initialFlights();
+				}
+				std::cout << std::endl <<"INFORMATION " << std::endl;
+				std::cout << std::endl << "FLIHGT" << std::endl;
+
+				std::cout << std::endl << obj << std::endl;
+				std::cout << std::endl << "PILOT" << std::endl;
+
+				std::cout << std::endl << obj.getPilot() << std::endl;
+				std::cout << std::endl << " PLANE " << std::endl;
+
+				std::cout << std::endl << obj.getPlane() << std::endl;
+			}
+			else
+			{
+				std::cout << obj.getPilot() << std::endl;
+				std::cout << obj.getPlane() << std::endl;
+			}
+
+			return;
+		}
+		
+		});
+	
+
+}
+
 void Airport::edit()
 {
 	std::cout << "Edit \n1.Flights\n2.Planes\n3.Pilots\n";
@@ -125,16 +168,145 @@ void Airport::edit()
 		default:
 			break;
 		}
-
+		break;
 	}
 	case 2:
 	{
+		//Plane
 		std::cout << " \n1.Change\n2.Remove\n3.Add\n";
 		std::cin >> flag;
+		switch (flag)
+		{
+		case 1:
+		{
+			for (size_t i = 0; i < planes.size(); i++)
+			{
+				std::cout << std::setw(2) << i << "." << this->planes[i];
+			}
+			std::cout << "\n SELECT FLIGHT " << std::endl << std::endl;
+			std::cin >> flag;
+			planes[flag].changeItem();
+
+		
+			break;
+		}
+		case 2:
+		{
+			int indexPlane;
+			for (size_t i = 0; i < planes.size(); i++)
+			{
+				std::cout << std::setw(2) << i << "." << this->planes [i] ;
+			}
+			std::cout << "\n SELECT PLANE " << std::endl << std::endl;
+			std::cin >> indexPlane;
+			this->planes.erase(planes.begin() + indexPlane);
+			std::cout << "\n DONE  " << std::endl << std::endl;
+			break;
+
+		}
+		case 3:
+		{
+			Plane plane;
+			std::string str, temp;
+			std::cout << " Enter plane number\n";
+			std::cin >> temp;
+			str += " " + temp;
+			std::cout << " Enter plane brand\n";
+			std::cin >> temp;
+			str += " " + temp;
+			std::cout << " Enter release date\n";
+			std::cin >> temp;
+			str += " " + temp;
+			std::cout << " Enter plane carrying in kg\n";
+			std::cin >> temp;
+			str += " " + temp;
+			std::cout << " Enter plane passengers count\n";
+			std::cin >> temp;
+			str += " " + temp;
+		
+
+			std::stringstream ss(str);
+			ss >> plane;
+			planes.push_back(plane);
+			
+			
+
+
+			break;
+		}
+		default:
+			break;
+		}
+		break;
 	}
 	case 3:
 	{
+		//Pilot
+		std::cout << " \n1.Change\n2.Remove\n3.Add\n";
+		std::cin >> flag;
+		switch (flag)
+		{
+		case 1:
+		{
+			for (size_t i = 0; i < pilots.size(); i++)
+			{
+				std::cout << std::setw(2) << i << "." << this->pilots[i];
+			}
+			std::cout << "\n SELECT PILOT " << std::endl << std::endl;
+			std::cin >> flag;
+			pilots[flag].changeItem();
 
+
+			
+			break;
+		}
+		case 2:
+		{
+			int indexPilot;
+			for (size_t i = 0; i < pilots.size(); i++)
+			{
+				std::cout << std::setw(2) << i << "." << this->pilots [i] ;
+			}
+			std::cout << "\n SELECT PILOT " << std::endl << std::endl;
+			std::cin >> indexPilot;
+			this->pilots.erase(pilots .begin() + indexPilot);
+			std::cout << "\n DONE  " << std::endl << std::endl;
+			break;
+
+
+			break;
+		}
+		case 3:
+		{
+
+			Pilot pilot;
+			std::string str, temp;
+			std::cout << " Enter pilot surname\n";
+			std::cin >> temp;
+			str += " " + temp;
+			std::cout << " Enter work Experience\n";
+			std::cin >> temp;
+			str += " " + temp;
+			std::cout << " address\n";
+			std::cin >> temp;
+			str += " " + temp;
+			std::cout << " Date Of Birth\n";
+			std::cin >> temp;
+			str += " " + temp;
+			std::cout << " Enter salary \n";
+			std::cin >> temp;
+			str += " " + temp;
+
+
+			std::stringstream ss(str);
+			ss >> pilot;
+			pilots.push_back(pilot);
+			break;
+		}
+		default:
+			break;
+		}
+		break;
 	}
 	default:
 		break;
@@ -145,7 +317,7 @@ void Airport::initialFlights()
 	int indexPlane, indexPilot,indexFlight;
 	bool flag = true;
 	
-	
+	do
 	{
 		
 		for (size_t i = 0; i < flights.size(); i++)
@@ -176,7 +348,8 @@ void Airport::initialFlights()
 		std::cout << std::setw(50) <<"successfully\n" << std::endl;
 		std::cout << "Again? yes(1)/no(0)" << std::endl;
 		std::cin >> flag;
-	} while (flag);
+	} 
+	while (flag);
 	
 }
 void  Airport::printPlanes(std::ostream& out)

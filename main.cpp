@@ -8,10 +8,10 @@ int main()
 	airport.readPilots("Pilots.txt");
 	airport.readFlights("Flights.txt");
 	airport.readPlanes("Planes.txt");
-	//airport.initialFlights();
-	airport.edit();
-	airport.printFlights(std::cout);
+//	airport.edit();
+//	airport.printPilots(std::cout);
 	
+	airport.searchFlightByNumber();
 	
 	return 0;
 }
