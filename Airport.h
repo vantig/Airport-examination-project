@@ -4,8 +4,9 @@
 class Airport
 {
 public:
-	Airport()=default;
+	Airport() = default;
 	~Airport() = default;
+	void menu();
 	void readPlanes(std::string);
 	void readPilots(std::string);
 	void readFlights(std::string);
@@ -22,6 +23,77 @@ private:
 	std::vector<Plane>planes;
 	std::vector<Pilot>pilots;
 };
+void Airport:: menu()
+{
+	int flag;
+	do {
+		std::cout << "MENU:\n1 .Print\n2 .Edit\n3 .Save\n0 .Exit\n";
+		std::cin >> flag;
+		switch (flag)
+		{
+		case 1:
+		{
+			std::cout << "PRINT:\n1 .Pilots\n2 .Planes\n3 .Flights\n4. Back\n";
+			std::cin >> flag;
+			switch (flag)
+			{
+			case 1:
+			{
+				printPilots(std::cout);
+				break;
+			}
+			case 2:
+			{
+				printPlanes(std::cout);
+				break;
+			}
+			case 3:
+			{
+				printFlights(std::cout);
+				break;
+			}
+			case 4:
+			{
+				break;
+			}
+			default:
+				break;
+			}
+			break;
+		}
+			
+		case 2:
+		{
+			edit();
+			break;
+		}
+        case 3:
+		{
+			
+			std::ofstream fout;
+			fout.open("Airport.txt", std::ofstream::app);
+			fout.clear();
+			fout.write((char*)this, sizeof(Airport));
+			fout.close();
+			std::cout << "DONE\n";
+				break;
+		}
+		case 0:
+		{
+			exit;
+			break;
+
+		}
+		default:
+			std::cout<<"\n\nwrong number\n\n";
+		}
+
+	} while (flag);
+
+
+
+}
+
 void Airport::searchFlightByNumber()
 {
  std::cout << "Enter flight number\n"; 
@@ -67,7 +139,7 @@ void Airport::searchFlightByNumber()
 
 void Airport::edit()
 {
-	std::cout << "Edit \n1.Flights\n2.Planes\n3.Pilots\n";
+	std::cout << "EDIT \n1.Flights\n2.Planes\n3.Pilots\n";
 	int flag;
 	std::cin >> flag;
 	switch (flag)
