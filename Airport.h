@@ -13,6 +13,7 @@ public:
 	void printPlanes(std::ostream&);
 	void printPilots(std::ostream&);
 	void printFlights(std::ostream&);
+	void edit();
 	
 private:
 	
@@ -21,13 +22,130 @@ private:
 	std::vector<Plane>planes;
 	std::vector<Pilot>pilots;
 };
+void Airport::edit()
+{
+	std::cout << "Edit \n1.Flights\n2.Planes\n3.Pilots\n";
+	int flag;
+	std::cin >> flag;
+	switch (flag)
+	{
+	case 1:
+	{
+		std::cout << " \n1.Change\n2.Remove\n3.Add\n";
+		std::cin >> flag;
+		switch (flag)
+		{
+		case 1:
+		{int indexFlight;
+			std::cout << "change pilot or plane in flight?yes(1)/no(0)  \n";
+			std::cin >> indexFlight;
+			if (indexFlight)
+			{
+				this->initialFlights();
+			}
+			
+			for (size_t i = 0; i < flights.size(); i++)
+			{
+				std::cout << std::setw(2) << i << "." << this->flights[i];
+			}
+			std::cout << "\n SELECT FLIGHT " << std::endl << std::endl;
+			std::cin >> indexFlight;
+			flights[indexFlight].changeItem();
 
+			break;
+			
+		}
+		case 2:
+		{
+			int indexFlight;
+			for (size_t i = 0; i < flights.size(); i++)
+			{
+				std::cout << std::setw(2) << i << "." << this->flights[i];
+			}
+			std::cout << "\n SELECT FLIGHT " << std::endl << std::endl;
+			std::cin >> indexFlight;
+			this->flights.erase(flights.begin()+indexFlight);
+			std::cout << "\n DONE  " << std::endl << std::endl;
+			break;
+		}
+		case 3:
+		{
+			Flight flight;
+			std::string str, temp;
+			std::cout << " Enter flight number\n";
+			std::cin >> temp;
+			str += " " + temp;
+			std::cout << " Enter Finish date\n";
+			std::cin >> temp;
+			str += " " + temp;
+			std::cout << " Enter Start date\n";
+			std::cin >> temp;
+			str += " " + temp;
+			std::cout << " Enter range in km\n";
+			std::cin >> temp;
+			str += " " + temp;
+			std::cout << " Enter flight cost\n";
+			std::cin >> temp;
+			str += " " + temp;
+			std::cout << " Enter start point\n";
+			std::cin >> temp;
+			str += " " + temp;
+			std::cout << " Enter finish point\n";
+			std::cin >> temp;
+			str += " " + temp;
+			std::cout << " Enter count of stops\n";
+			std::cin >> temp;
+			str += " " + temp;
+			std::cout << " Enter count of sold tickets \n";
+			std::cin >> temp;
+			str +=" "+ temp;
+			std::cout << " Enter cargo weight \n";
+			std::cin >> temp;
+			str += " " + temp;
+
+			std::stringstream ss(str);
+			ss >> flight;
+			flights.push_back(flight);
+			std::cout << " Add pilot and plane? \n";
+			std::cin >> flag;
+			if (flag)
+			{
+				this->initialFlights();
+				std::cout << "\n DONE  " << std::endl << std::endl;
+				break;
+			}
+			else
+			{
+				std::cout << "\n DONE  " << std::endl << std::endl;
+
+				break;
+			}
+
+		}
+		default:
+			break;
+		}
+
+	}
+	case 2:
+	{
+		std::cout << " \n1.Change\n2.Remove\n3.Add\n";
+		std::cin >> flag;
+	}
+	case 3:
+	{
+
+	}
+	default:
+		break;
+	}
+}
 void Airport::initialFlights()
 {
 	int indexPlane, indexPilot,indexFlight;
 	bool flag = true;
 	
-	do
+	
 	{
 		
 		for (size_t i = 0; i < flights.size(); i++)
@@ -98,7 +216,7 @@ void Airport::readPilots(std::string file)
 void Airport::readFlights(std::string file)
 {
 	std::ifstream in(file);
-	while (in)
+	while (!in.eof())
 	{
 		Flight temp;
 		in >> temp;

@@ -4,8 +4,9 @@ class Flight :public Pilot, public Plane
 {
 public:
 	Flight() = default;
-	void setPilotandPlane(Pilot& pi, Plane& pl) { pilot = pi, plane = pl; pilotSurname = pi.getSurname(), planeNumber = pl.getNumber(), planeBrand = pl.getBrand(), cargoWeight = pl.getCarrying(); }
 	~Flight() = default;
+	void setPilotandPlane(Pilot& pi, Plane& pl) { pilot = pi, plane = pl; pilotSurname = pi.getSurname(), planeNumber = pl.getNumber(), planeBrand = pl.getBrand(), cargoWeight = pl.getCarrying(); }
+	void changeItem();
 	std::string getflightNumber()const { return flightNumber; }
 	std::string getFinishDate()const { return finishDate; }
 	std::string getStartDate() const { return startDate; }
@@ -21,7 +22,7 @@ public:
 	size_t getCargoWeight() const { return cargoWeight; }
 	friend std::istream& operator>>(std::istream& in, Flight& flight);
 	friend	std::ostream& operator<<(std::ostream& out, const Flight& flight);
-private:
+protected:
 	Pilot pilot;
 	Plane plane;
     std::string flightNumber;
@@ -38,6 +39,114 @@ private:
 	size_t countOfSoldTickets;
 	size_t cargoWeight;
 };
+void Flight:: changeItem()
+{
+	std::cout << "\n SELECT ITEM " << std::endl << std::endl;
+	std::cout << " 1. flight number\n";
+
+	std::cout << " 2.  finish date\n";
+
+	std::cout << " 3.  start date\n";
+	std::cout << " 4. range in km\n";
+	std::cout << " 5. flight cost\n";
+
+	std::cout << " 6. start point\n";
+	std::cout << " 7. finish point\n";
+	std::cout << " 8. count of stops\n";
+
+	std::cout << " 9. count of sold tickets \n";
+
+	std::cout << "10.  cargo weight \n";
+	int choise;
+	std::cin >> choise;
+	std::string str;
+	
+	switch (choise)
+	{
+	case 1:
+	{
+		std::cout << "Enter flight number\n";
+		std::cin >> str;
+		std::stringstream out(str);
+		out>>flightNumber;
+		break;
+	}
+	case 2:
+	{
+		std::cout << "Enter finish date\n";
+		std::cin >> str;
+		std::stringstream out(str);
+		out >> finishDate ;
+		break;
+	}
+	case 3:
+	{
+		std::cout << "Enter  start date\n";
+		std::cin >> str;
+		std::stringstream out(str);
+		out >> startDate ;
+		break;
+	}
+	case 4:
+	{
+		std::cout << "Enter range in km\n";
+		std::cin >> str;
+		std::stringstream out(str);
+		out >> km ;
+		break;
+	}
+	case 5:
+	{
+		std::cout << "Enter flight cost\n";
+		std::cin >> str;
+		std::stringstream out(str);
+		out >> cost ;
+		break;
+	}
+	case 6:
+	{
+		std::cout << "Enter start point\n";
+		std::cin >> str;
+		std::stringstream out(str);
+		out>>startPoint ;
+		break;
+	}
+	case 7:
+	{
+		std::cout << "Enter finish point\n";
+		std::cin >> str;
+		std::stringstream out(str);
+		out >> finishPoint ;
+		break;
+	}
+	case 8:
+	{
+		std::cout << "Enter count of stops\n";
+		std::cin >> str;
+		std::stringstream out(str);
+		out>>countOfStops ;
+		break;
+	}
+	case 9:
+	{
+		std::cout << "Enter count of sold tickets\n";
+		std::cin >> str;
+		std::stringstream out(str);
+		out >> countOfSoldTickets ;
+		break;
+	}
+	case 10:
+	{
+		std::cout << "Enter cargo weight\n";
+		std::cin >> str;
+		std::stringstream out(str);
+		out >> cargoWeight ;
+		break;
+	}
+	default:
+		break;
+	}
+}
 	std::ostream& operator<<(std::ostream& out, const Flight& flight)
 {
 		out << " flight number  " << flight.getflightNumber() << " flight start date " << flight.getStartDate() << "  flight finish date " << flight.getFinishDate() << std::endl <<

@@ -22,7 +22,9 @@ private:
 };
 std::ostream& operator<<(std::ostream& out, const Plane& plane)
 {
+	
 	out<<" | Plane number "<<std::setw(7) << plane.getNumber()<<" | Brand "<<std::setw(10) <<plane.getBrand() <<" | Release date "<<  std::setw(14) << plane.getReleaseDate()<<" | Carrying " << std::setw(8) <<  plane.getCarrying() <<" | Passangers count "<< std::setw(6) <<  plane.getPassengersCount() <<  " \n";
+	
 	return out;
 
 }

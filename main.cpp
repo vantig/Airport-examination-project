@@ -2,17 +2,16 @@
 
 int main()
 {
-	Airport airoport;
+	Airport airport;
 	
 	
-	airoport.readPilots("Pilots.txt");
-	airoport.readFlights("Flights.txt");
-	airoport.readPlanes("Planes.txt");
-	airoport.initialFlights();
-	airoport.printPilots(std::cout);
-	airoport.printFlights(std::cout);
-	airoport.printPlanes(std::cout);
-		
+	airport.readPilots("Pilots.txt");
+	airport.readFlights("Flights.txt");
+	airport.readPlanes("Planes.txt");
+	//airport.initialFlights();
+	airport.edit();
+	airport.printFlights(std::cout);
+	
 	
 	return 0;
 }
