@@ -27,7 +27,7 @@ void Airport::initialFlights()
 	int indexPlane, indexPilot,indexFlight;
 	bool flag = true;
 	
-	while (flag)
+	do
 	{
 		
 		for (size_t i = 0; i < flights.size(); i++)
@@ -38,7 +38,7 @@ void Airport::initialFlights()
 		std::cin >> indexFlight;
 		for (size_t i = 0; i < pilots.size(); i++)
 		{
-			std::cout << i << this->pilots[i];
+			std::cout << std::setw(2) << i << this->pilots[i];
 		}
 		
 		std::cout  << "\n SELECT PILOT " << std::endl << std::endl;
@@ -47,7 +47,7 @@ void Airport::initialFlights()
 		std::cin >> indexPilot;
 		for (size_t i = 0; i < planes.size(); i++)
 		{
-			std::cout << i << this->planes[i];
+			std::cout << std::setw(2) << i << this->planes[i];
 		}
 
 		std::cout << "\n SELECT PLANE " << std::endl << std::endl;
@@ -55,10 +55,10 @@ void Airport::initialFlights()
 		std::cin >> indexPlane;
 		flights[indexFlight].setPilotandPlane(pilots[indexPilot], planes[indexPlane]);
 		std::cout <<flights[indexFlight] << std::endl;
-		std::cout << "-----------successfully-------------" << std::endl;
+		std::cout << std::setw(50) <<"successfully\n" << std::endl;
 		std::cout << "Again? yes(1)/no(0)" << std::endl;
 		std::cin >> flag;
-	}
+	} while (flag);
 	
 }
 void  Airport::printPlanes(std::ostream& out)
