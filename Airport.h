@@ -92,6 +92,41 @@ void Airport:: menu()
 			std::cout<<"\n\nwrong number\n\n";
 		}
 
+		
+			//HANDLE                     hStdOut;
+			//CONSOLE_SCREEN_BUFFER_INFO csbi;
+			//DWORD                      count;
+			//DWORD                      cellCount;
+			//COORD                      homeCoords = { 0, 0 };
+
+			//hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+			//if (hStdOut == INVALID_HANDLE_VALUE) return;
+
+			///* Get the number of cells in the current buffer */
+			//if (!GetConsoleScreenBufferInfo(hStdOut, &csbi)) return;
+			//cellCount = csbi.dwSize.X * csbi.dwSize.Y;
+
+			///* Fill the entire buffer with spaces */
+			//if (!FillConsoleOutputCharacter(
+			//	hStdOut,
+			//	(TCHAR)' ',
+			//	cellCount,
+			//	homeCoords,
+			//	&count
+			//)) return;
+
+			///* Fill the entire buffer with the current colors and attributes */
+			//if (!FillConsoleOutputAttribute(
+			//	hStdOut,
+			//	csbi.wAttributes,
+			//	cellCount,
+			//	homeCoords,
+			//	&count
+			//)) return;
+
+			///* Move the cursor home */
+			//SetConsoleCursorPosition(hStdOut, homeCoords);
+		 
 	} while (flag);
 
 
@@ -130,12 +165,14 @@ void Airport::searchFlightByNumber()
 			
 			}
 
+			str.clear();
 			return;
 		}
 		
 		});
-	
-
+	if (!str.size() < 1) {
+		std::cout << std::endl << "NOT FOUND\n" << std::endl;
+	}
 }
 
 void Airport::edit()
@@ -167,6 +204,7 @@ void Airport::edit()
 			std::cout << "\n SELECT FLIGHT " << std::endl << std::endl;
 			std::cin >> indexFlight;
 			flights[indexFlight].changeItem();
+			std::cout << "\n DONE " << std::endl << std::endl;
 
 			break;
 			
@@ -256,11 +294,13 @@ void Airport::edit()
 			{
 				std::cout << std::setw(2) << i << "." << this->planes[i];
 			}
-			std::cout << "\n SELECT FLIGHT " << std::endl << std::endl;
+			std::cout << "\n SELECT PLANE " << std::endl << std::endl;
 			std::cin >> flag;
 			planes[flag].changeItem();
 
-		
+
+			std::cout << "\n DONE  " << std::endl << std::endl;
+
 			break;
 		}
 		case 2:
@@ -303,6 +343,7 @@ void Airport::edit()
 			planes.push_back(plane);
 			
 			
+			std::cout << "\n DONE  " << std::endl << std::endl;
 
 
 			break;
@@ -330,7 +371,8 @@ void Airport::edit()
 			pilots[flag].changeItem();
 
 
-			
+			std::cout << "\n DONE  " << std::endl << std::endl;
+
 			break;
 		}
 		case 2:
@@ -374,6 +416,8 @@ void Airport::edit()
 			std::stringstream ss(str);
 			ss >> pilot;
 			pilots.push_back(pilot);
+			std::cout << "\n DONE  " << std::endl << std::endl;
+
 			break;
 		}
 		default:

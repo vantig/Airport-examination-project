@@ -26,9 +26,9 @@ void Plane::changeItem()
 	std::cout << "\n SELECT ITEM " << std::endl << std::endl;
 	std::cout << " 1. plane number\n";
 
-	std::cout << " 2.  plane brand\n";
+	std::cout << " 2. plane brand\n";
 
-	std::cout << " 3.  plane release date\n";
+	std::cout << " 3. plane release date\n";
 	std::cout << " 4. plane carrying\n";
 	std::cout << " 5. plane passangers count\n";
 

@@ -46,9 +46,9 @@ void Flight:: changeItem()
 	std::cout << "\n SELECT ITEM " << std::endl << std::endl;
 	std::cout << " 1. flight number\n";
 
-	std::cout << " 2.  finish date\n";
+	std::cout << " 2. finish date\n";
 
-	std::cout << " 3.  start date\n";
+	std::cout << " 3. start date\n";
 	std::cout << " 4. range in km\n";
 	std::cout << " 5. flight cost\n";
 
@@ -58,7 +58,7 @@ void Flight:: changeItem()
 
 	std::cout << " 9. count of sold tickets \n";
 
-	std::cout << "10.  cargo weight \n";
+	std::cout << "10. cargo weight \n";
 	int choise;
 	std::cin >> choise;
 	std::string str;
