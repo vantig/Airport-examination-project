@@ -1,6 +1,5 @@
 ﻿#pragma once
 #include"HeaderMain.h"
-#include"Pilot.h"
 class Airport
 {
 public:
@@ -27,13 +26,13 @@ void Airport:: menu()
 {
 	int flag;
 	do {
-		std::cout << "MENU:\n1 .Print\n2 .Edit\n3 .Save\n0 .Exit\n";
+		std::cout << "MENU:\n1 .Print\n2 .Edit\n3 .Find\n4 .Save\n0 .Exit\n";
 		std::cin >> flag;
 		switch (flag)
 		{
 		case 1:
 		{
-			std::cout << "PRINT:\n1 .Pilots\n2 .Planes\n3 .Flights\n4. Back\n";
+			std::cout << "PRINT:\n1 .Pilots\n2 .Planes\n3 .Flights\n4 .Back\n";
 			std::cin >> flag;
 			switch (flag)
 			{
@@ -67,7 +66,12 @@ void Airport:: menu()
 			edit();
 			break;
 		}
-        case 3:
+		case 3:
+		{
+			this->searchFlightByNumber();
+			break;
+		}
+        case 4:
 		{
 			
 			std::ofstream fout;
@@ -110,23 +114,20 @@ void Airport::searchFlightByNumber()
 				std::cin >> temp;
 				if (temp)
 				{
-				this->initialFlights();
+					this->initialFlights();
+
+					std::cout << std::endl << "INFORMATION " << std::endl;
+					std::cout << std::endl << "FLIHGT" << std::endl;
+
+					std::cout << std::endl << obj << std::endl;
+					std::cout << std::endl << "PILOT" << std::endl;
+
+					std::cout << std::endl << obj.getPilot() << std::endl;
+					std::cout << std::endl << " PLANE " << std::endl;
+
+					std::cout << std::endl << obj.getPlane() << std::endl;
 				}
-				std::cout << std::endl <<"INFORMATION " << std::endl;
-				std::cout << std::endl << "FLIHGT" << std::endl;
-
-				std::cout << std::endl << obj << std::endl;
-				std::cout << std::endl << "PILOT" << std::endl;
-
-				std::cout << std::endl << obj.getPilot() << std::endl;
-				std::cout << std::endl << " PLANE " << std::endl;
-
-				std::cout << std::endl << obj.getPlane() << std::endl;
-			}
-			else
-			{
-				std::cout << obj.getPilot() << std::endl;
-				std::cout << obj.getPlane() << std::endl;
+			
 			}
 
 			return;
@@ -139,7 +140,7 @@ void Airport::searchFlightByNumber()
 
 void Airport::edit()
 {
-	std::cout << "EDIT \n1.Flights\n2.Planes\n3.Pilots\n";
+	std::cout << "EDIT \n1.Flights\n2.Planes\n3.Pilots\n4.Back\n";
 	int flag;
 	std::cin >> flag;
 	switch (flag)
@@ -411,10 +412,15 @@ void Airport::initialFlights()
 		{
 			std::cout << std::setw(2) << i << this->planes[i];
 		}
-
+		 again:
 		std::cout << "\n SELECT PLANE " << std::endl << std::endl;
 		
 		std::cin >> indexPlane;
+		if (planes[indexPlane].getCarrying()<flights[indexFlight].getCargoWeight()|| planes[indexPlane].getPassengersCount()< flights[indexFlight].getCountOfSoldTickets())
+		{
+			std::cout << "\nTHIS PLANE DOES NOT FIT BY PARAMETERS, CHOOSE ANOTHER\n";
+			goto  again;
+		}
 		flights[indexFlight].setPilotandPlane(pilots[indexPilot], planes[indexPlane]);
 		std::cout <<flights[indexFlight] << std::endl;
 		std::cout << std::setw(50) <<"successfully\n" << std::endl;

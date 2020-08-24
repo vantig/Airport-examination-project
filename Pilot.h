@@ -13,7 +13,7 @@ public:
 	friend std::istream& operator>>(std::istream& in, Pilot&);
 	friend std::ostream& operator<<(std::ostream& out, const Pilot&);
 	 void changeItem();
-public:
+private:
 	std::string surname;
 	size_t workExperienceYears;
 	std::string address;

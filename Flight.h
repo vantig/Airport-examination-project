@@ -1,6 +1,6 @@
 #pragma once
 #include"HeaderMain.h"
-class Flight :public Pilot, public Plane
+class Flight 
 {
 public:
 	Flight() = default;
