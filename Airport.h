@@ -74,13 +74,31 @@ void Airport:: menu()
         case 4:
 		{
 			
-			std::ofstream fout;
-			fout.open("Airport.txt", std::ofstream::app);
-			fout.clear();
-			fout.write((char*)this, sizeof(Airport));
-			fout.close();
+			/*std::ofstream file;
+			file.open("Airport.txt", std::ofstream::app);
+			file.clear();
+			std::string number;
+			std::string brand;
+			std::string releaseDate;
+			int carrying;
+			int passengersCount;
+			size_t str_size = number.size() + 1;
+			file.write(reinterpret_cast<char*>(&str_size), sizeof(size_t));
+			file.write(reinterpret_cast<char*>(number.c_str()), str_size);
+
+			str_size = brand.size() + 1;
+			file.write(reinterpret_cast<char*>(&str_size), sizeof(size_t));
+			file.write(reinterpret_cast<char*>(brand.c_str()), str_size);
+
+			str_size = releaseDate.size() + 1;
+			file.write(reinterpret_cast<char*>(&str_size), sizeof(size_t));
+			file.write(reinterpret_cast<char*>(releaseDate.c_str()), str_size);
+
+			file.write(reinterpret_cast<char*>(&carrying), sizeof(int));
+			file.write(reinterpret_cast<char*>(&passengersCount), sizeof(int));
+			file.close();
 			std::cout << "DONE\n";
-				break;
+				break;*/
 		}
 		case 0:
 		{
@@ -141,7 +159,7 @@ void Airport::searchFlightByNumber()
 	std::for_each(flights.begin(), flights.end(), [this,&str](Flight &obj) {
 		if (obj.getflightNumber() == str)
 		{
-			std::cout << obj<<std::endl;
+			
 			if (obj.getPlane().getBrand().size()==0)
 			{
 				int temp;
@@ -164,7 +182,19 @@ void Airport::searchFlightByNumber()
 				}
 			
 			}
+			else
+			{
+				std::cout << std::endl << "INFORMATION " << std::endl;
+				std::cout << std::endl << "FLIHGT" << std::endl;
 
+				std::cout << std::endl << obj << std::endl;
+				std::cout << std::endl << "PILOT" << std::endl;
+
+				std::cout << std::endl << obj.getPilot() << std::endl;
+				std::cout << std::endl << " PLANE " << std::endl;
+
+				std::cout << std::endl << obj.getPlane() << std::endl;
+			}
 			str.clear();
 			return;
 		}

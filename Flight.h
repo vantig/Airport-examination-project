@@ -1,11 +1,11 @@
 #pragma once
 #include"HeaderMain.h"
-class Flight 
+class Flight :public Pilot , public Plane
 {
 public:
 	Flight() = default;
 	~Flight() = default;
-	void setPilotandPlane(Pilot& pi, Plane& pl) { pilot = pi, plane = pl; pilotSurname = pi.getSurname(), planeNumber = pl.getNumber(), planeBrand = pl.getBrand(), cargoWeight = pl.getCarrying(); }
+	void setPilotandPlane(Pilot& pi, Plane& pl) { (Pilot&)*this = pi; (Plane&)*this = pl; pilotSurname = pi.getSurname(), planeNumber = pl.getNumber(), planeBrand = pl.getBrand(), cargoWeight = pl.getCarrying(); }
 	void changeItem();
 	std::string getflightNumber()const { return flightNumber; }
 	std::string getFinishDate()const { return finishDate; }
@@ -20,13 +20,13 @@ public:
 	size_t getCountOfStops() const { return countOfStops; }
 	size_t getCountOfSoldTickets() const { return countOfSoldTickets; }
 	size_t getCargoWeight() const { return cargoWeight; }
-	Pilot& getPilot() { return pilot; };
-	Plane& getPlane() { return plane; };
+	Pilot& getPilot() { return (Pilot&)*this; };
+	Plane& getPlane() { return (Plane&)*this; };
 	friend std::istream& operator>>(std::istream& in, Flight& flight);
 	friend	std::ostream& operator<<(std::ostream& out, const Flight& flight);
 protected:
-	Pilot pilot;
-	Plane plane;
+	/*Pilot pilot;
+	Plane plane;*/
     std::string flightNumber;
 	std::string finishDate;
 	std::string startDate;
